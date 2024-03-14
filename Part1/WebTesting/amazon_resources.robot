@@ -41,4 +41,27 @@ Clicar no botão de pesquisa
 
 Verificar o resultado da pesquisa se está listando o produto "${PRODUTO}"
     Wait Until Element Is Visible    locator=(//span[@class='a-size-base-plus a-color-base a-text-normal'][contains(.,'${PRODUTO}')])
-    
+
+Dado que estou na home page da Amazon.com.br
+    Acessar o home page do site Amazon.com.br
+
+Quando acessar o menu "Eletrônicos"
+    Entrar no menu "Eletrônicos"
+
+Então o título da página deve ficar "Eletrônicos e Tecnologia | Amazon.com.br"
+    Verificar se o título da página fica "Eletrônicos e Tecnologia | Amazon.com.br"
+
+E o texto "Eletrônicos e Tecnologia" deve ser exibido na página
+    Verificar se aparece a frase "Eletrônicos e Tecnologia"
+
+E a categoria "Computadores e Informática" deve ser exibida na página
+    Verificar se aparece a categoria "Computadores e Informática"
+
+Quando pesquisar pelo produto "Xbox Series S" 
+    Digitar o nome do produto "Xbox Series S" no campo de pesquisa
+    Clicar no botão de pesquisa
+
+Então o título da página deve ficar "Amazon.com.br : Xbox Series S"
+    Verificar se o título da página fica "Amazon.com.br : Xbox Series S"
+E um produto da linha "Xbox Series S" deve ser exibido na página
+    Verificar o resultado da pesquisa se está listando o produto "Xbox Series S"
