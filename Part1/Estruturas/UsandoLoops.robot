@@ -42,3 +42,10 @@ Usando FOR IN RANGE
         Log To Console    Minha posição agora é: ${CONTADOR}
         Log   Minha posição agora é: ${CONTADOR}
     END
+
+Usando FOR IN
+    Log To Console    ${\n}
+    FOR  ${FRUTA}   IN  @{MINHA_LISTA_DE_FRUTAS}
+        Log To Console    Minha fruta é: ${FRUTA}!
+        No Operation
+    END
