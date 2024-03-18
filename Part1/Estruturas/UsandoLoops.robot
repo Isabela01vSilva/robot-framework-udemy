@@ -30,3 +30,15 @@ Teste de Sair do FOR
 Usando Repeat keyword
     Log To Console  ${\n}
     Repeat Keyword    8x    Log To Console    Minha repetição da keyword!!!
+
+Usando FOR IN RANGE
+    Log To Console  ${\n}
+    FOR  ${CONTADOR}   IN RANGE  0   10   2
+        Log To Console    Minha posição agora é: ${CONTADOR}
+        Log   Minha posição agora é: ${CONTADOR}
+    END
+
+    FOR  ${CONTADOR}   IN RANGE  10   15   
+        Log To Console    Minha posição agora é: ${CONTADOR}
+        Log   Minha posição agora é: ${CONTADOR}
+    END
