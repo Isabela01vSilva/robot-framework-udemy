@@ -49,3 +49,10 @@ Usando FOR IN
         Log To Console    Minha fruta é: ${FRUTA}!
         No Operation
     END
+
+Usando FOR IN ENUMERATE
+    Log To Console    ${\n}
+    FOR   ${INDICE}   ${FRUTA}   IN ENUMERATE   @{MINHA_LISTA_DE_FRUTAS}
+        Log To Console    Minha fruta é: ${INDICE} --> ${FRUTA}!
+        No Operation
+    END
