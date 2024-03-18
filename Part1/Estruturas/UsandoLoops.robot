@@ -27,3 +27,6 @@ Teste de Sair do FOR
     Usando FOR IN com EXIT FOR LOOP IF
 
 *** Keywords ***
+Usando Repeat keyword
+    Log To Console  ${\n}
+    Repeat Keyword    8x    Log To Console    Minha repetição da keyword!!!
