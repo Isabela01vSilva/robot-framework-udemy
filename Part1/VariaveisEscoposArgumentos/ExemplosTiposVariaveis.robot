@@ -8,7 +8,7 @@ ${SIMPLES}   Vamos ver os tipos de variáveis no robot!
 @{FRUTAS}    morango   banana   maça   uva   abacaxi
 
 #Tipo Dicionário (chave=valor) - separar cada chave=valor com espaço duplo
-&{PESSOA}    nome=May Fernandes   email=mayfernandes@exemplo.com.br   idade=28   sexo=feminino
+&{PESSOA}    nome=Isabela Siva   email=isasilva@exemplo.com.br   idade=22   sexo=feminino
 
 *** Test Cases ***
 Caso de teste de exemplo 01
