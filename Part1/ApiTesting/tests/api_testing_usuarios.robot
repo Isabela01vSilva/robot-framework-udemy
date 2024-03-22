@@ -20,3 +20,9 @@ Cenário 03: Consultar os dados de um novo usuário
     Cadastrar o usuário criado na ServeRest    email=${EMAIL_TESTE}    status_code_desejado=201
     Consultar os dados do novo usuário 
     Conferir os dados retornados
+
+Cenário 04: Logar com o novo usuário criado 
+    Criar um usuário novo
+    Cadastrar o usuário criado na ServeRest    email=${EMAIL_TESTE}    status_code_desejado=201
+    Realizar login com o usuário
+    Conferir se o login ocorreu com sucesso
