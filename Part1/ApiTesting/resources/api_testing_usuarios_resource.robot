@@ -1,6 +1,7 @@
 *** Settings ***
 Library    RequestsLibrary
 Library    String 
+Library    Collections
 
 *** Keywords ***
 Criar um usuário novo 
@@ -9,9 +10,9 @@ Criar um usuário novo
     Set Test Variable    ${EMAIL_TESTE}    ${palavra_aleatoria}@emailteste.com
     Log To Console    ${EMAIL_TESTE}
 
-Criar Sessão na ServerRest
+Criar Sessão na ServeRest
     ${headers}    Create Dictionary    accept=application/json    Content-Type=application/json    
-    Create Session    alias=ServerRest    url=https://serverest.dev   headers=${headers}
+    Create Session    alias=ServeRest    url=https://serverest.dev  headers=${headers}
     
 Cadastrar o usuário criado na ServerRest
     ${body}    Create Dictionary    
@@ -19,13 +20,18 @@ Cadastrar o usuário criado na ServerRest
     ...    email=${EMAIL_TESTE}    
     ...    password=1234    
     ...    administrador=true
-    
     Log To Console    ${body}
-    Criar Sessão na ServerRest
-    
+
+    Criar Sessão na ServeRest
     ${resposta}    POST On Session    
-    ...    alias=ServerRest
-    ...    url=/usuarios  
+    ...    alias=ServeRest
+    ...    url=/usuarios
     ...    json=${body}
         
     Log To Console    ${resposta.json()}
+    Set Test Variable    ${RESPOSTAS}    ${resposta.json()}
+
+Conferir se o usuário foi cadastrado corretamente 
+    Log To Console    ${RESPOSTAS}
+    Dictionary Should Contain Item    ${RESPOSTAS}    message    Cadastro realizado com sucesso
+    Dictionary Should Contain Key     ${RESPOSTAS}    _id
