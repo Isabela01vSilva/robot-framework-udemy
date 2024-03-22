@@ -3,7 +3,6 @@ Resource  ../resources/api_testing_usuarios_resource.robot
 
 *** Variables ***
 
-
 *** Test Cases ***
 Cenário 01: Cadastrar um novo usuário com sucesso na ServerRest
     Criar um usuário novo 

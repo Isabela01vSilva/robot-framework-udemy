@@ -12,7 +12,7 @@ Criar um usuário novo
 
 Criar Sessão na ServeRest
     ${headers}    Create Dictionary    accept=application/json    Content-Type=application/json    
-    Create Session    alias=ServeRest    url=https://serverest.dev  headers=${headers}
+    Create Session    alias=ServeRest    url=https://serverest.dev/  headers=${headers}
     
 Cadastrar o usuário criado na ServeRest
     [Arguments]    ${email}    ${status_code_desejado}
@@ -27,7 +27,7 @@ Cadastrar o usuário criado na ServeRest
     
     ${resposta}    POST On Session    
     ...    alias=ServeRest
-    ...    url=/usuarios
+    ...    url=usuarios
     ...    json=${body}
     ...    expected_status=${status_code_desejado}
         
@@ -52,6 +52,15 @@ Verificar se a API não permitiu o cadastro repetido
 
 Consultar os dados do novo usuário 
     ${resposta_consulta}    GET On Session    alias=ServeRest    url=/usuarios/${ID_USUARIO}    expected_status=200
+    
+    # Obtendo as propriedades do objeto response
+    Log   ${resposta_consulta.status_code}
+    Log   ${resposta_consulta.reason}
+    Log   ${resposta_consulta.headers}
+    Log   ${resposta_consulta.elapsed}
+    Log   ${resposta_consulta.text}
+    Log   ${resposta_consulta.json()}
+    
     Set Test Variable    ${RESP_CONSULTA}    ${resposta_consulta.json()}
 
 Conferir os dados retornados
